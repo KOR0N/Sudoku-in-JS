@@ -30,6 +30,7 @@ var solution = [
 
 window.onload = function(){
   setGame();
+  generateGrid();
 }
 
 function setGame(){
@@ -93,6 +94,23 @@ function selectCell(){
       let error_index = document.getElementById("errors")
       error_index.innerText  = errors.toString() + "/3";
     }
+  }
+}
+
+function generateGrid(){
+  let grid = [[],[],[],[],[],[],[],[],[]]
+  let col = [[],[],[],[],[],[],[],[],[]]
+  console.log("--------BREAK-------");
+  for(let i = 0; i < 9; i++){
+    for(let j = 0; j < 9; j++){
+      do{
+        random = Math.floor(Math.random() * 9) +1
+      }while(grid[i].indexOf(random) != -1 || col[j].indexOf(random) != -1)
+      grid[i][j] = random;
+      col[j][i] = random;
+      // console.log(random, grid[i])
+    }
+    console.log(grid[i],"      " , col[0]);
   }
 }
 
